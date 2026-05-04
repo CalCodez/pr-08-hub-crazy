@@ -1,0 +1,31 @@
+:root {
+	--black: #000000;
+	--white: #ffffff;
+	--ol: 1px solid white;
+	--olB: 1px solid blue;
+	--olY: 1px solid yellow;
+	--olR: 1px solid red;
+	--olO: 1px solid orange;
+	--olG: 1px solid green;
+}
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+a,
+li {
+	text-decoration: none;
+	list-style: none;
+	cursor: pointer;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
