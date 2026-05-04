@@ -1,0 +1,12 @@
+@media screen and (max-width: 501px) {
+	header {
+		justify-content: center;
+	}
+	.main-nav {
+		display: none;
+	}
+
+	.fa-bars {
+		display: flex;
+	}
+}
