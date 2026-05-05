@@ -112,7 +112,6 @@ header {
 
 .hero-section {
 	justify-content: space-around;
-
 	background: conic-gradient(
 		var(--project-color-dark),
 		var(--project-color-main),
@@ -150,6 +149,83 @@ header {
 
 .phrase-container li:nth-child(3) {
 	color: var(--accent-dark);
+}
+
+/* !!Video Toggles */
+
+.video-section {
+	height: auto;
+	width: 100%;
+	position: relative;
+	outline: var(--ol);
+}
+
+.year-jump-container {
+	width: 0px;
+	flex-direction: column;
+	height: 360px;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	row-gap: 5px;
+	padding: 8px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: all ease-out 0.1s;
+}
+
+.year-jump-container-active {
+	width: 140px;
+	width: 140px;
+	border: 2px outset var(--project-color-dark);
+	box-shadow: 2px 2px 8px 1px var(--black);
+	transition: width ease 0.3s;
+	background: linear-gradient(var(--project-color-dark), var(--project-color-main), var(--accent));
+}
+
+.year-container-toggle {
+	position: absolute;
+	height: 80px;
+	width: 20px;
+	background: linear-gradient(var(--accent), var(--accent-dark));
+	text-align: center;
+	align-content: center;
+	color: var(--project-color-dark);
+	left: -7px;
+	font-size: 1.7rem;
+	border-radius: 3px;
+	font-weight: 600;
+	z-index: 3;
+	cursor: pointer;
+}
+
+.year-container-toggle:hover {
+	transform: scale(1.016);
+	transition: all ease 0.3s;
+
+	color: var(--accent);
+	background: linear-gradient(var(--project-color-dark), var(--black), var(--project-color-light));
+}
+
+.year-toggle-label {
+	color: var(--accent);
+	font-size: 1rem;
+	text-shadow: 2px 2px 2px var(--project-color-dark);
+	letter-spacing: 1.02px;
+	display: none;
+}
+.year-toggles {
+	height: 30px;
+	width: 100px;
+	place-content: center;
+	text-align: center;
+	background-color: var(--project-color-dark);
+	color: var(--accent);
+	font-weight: 600;
+	border: 2px ridge var(--accent-dark);
+	border-radius: 8px;
+	box-shadow: 2px 2px 5px 1px var(--black);
+	display: none;
 }
 
 .flex-active {

@@ -58,3 +58,55 @@ function toggleMobileMenu() {
 }
 
 toggleMobileMenu();
+
+//**Toggle Year Container */
+function toggleYearContainer() {
+	const toggle = getById('year-container-toggle');
+	const yearJumpContainer = getById('year-jump-container');
+	const yearToggleLabel = select('.year-toggle-label');
+	const yearToggles = selectAll('.year-toggles');
+	const toggleIcon = select('.toggle-icon');
+
+	const activeMenu = 'year-jump-container-active';
+	const caretLeft = 'fa-caret-left';
+	const caretRight = 'fa-caret-right';
+
+	toggle.addEventListener(click, () => {
+		if (!yearJumpContainer.classList.contains(activeMenu)) {
+			toggleClass(yearJumpContainer, activeMenu);
+			removeClass(toggleIcon, caretLeft);
+			addClass(toggleIcon, caretRight);
+
+			for (let toggles of yearToggles) {
+				setTimeout(() => {
+					toggleClass(yearToggleLabel, flexActive);
+					toggles.style.display = 'block';
+				}, 200);
+			}
+		} else {
+			toggleClass(yearJumpContainer, activeMenu);
+			removeClass(toggleIcon, caretRight);
+			addClass(toggleIcon, caretLeft);
+			toggleClass(yearToggleLabel, flexActive);
+
+			for (let toggles of yearToggles) {
+				toggles.style.display = 'none';
+			}
+		}
+	});
+
+	for (let toggles of yearToggles) {
+		toggles.addEventListener(click, () => {
+			toggleClass(yearJumpContainer, activeMenu);
+			removeClass(toggleIcon, caretRight);
+			addClass(toggleIcon, caretLeft);
+			toggleClass(yearToggleLabel, flexActive);
+
+			for (let toggles of yearToggles) {
+				toggles.style.display = 'none';
+			}
+		});
+	}
+}
+
+toggleYearContainer();
