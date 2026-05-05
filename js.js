@@ -77,12 +77,12 @@ function toggleYearContainer() {
 			removeClass(toggleIcon, caretLeft);
 			addClass(toggleIcon, caretRight);
 
-			for (let toggles of yearToggles) {
-				setTimeout(() => {
-					toggleClass(yearToggleLabel, flexActive);
+			setTimeout(() => {
+				toggleClass(yearToggleLabel, flexActive);
+				for (let toggles of yearToggles) {
 					toggles.style.display = 'block';
-				}, 200);
-			}
+				}
+			}, 200);
 		} else {
 			toggleClass(yearJumpContainer, activeMenu);
 			removeClass(toggleIcon, caretRight);
@@ -110,3 +110,49 @@ function toggleYearContainer() {
 }
 
 toggleYearContainer();
+
+//++Videos Obj
+const videos = [
+	{
+		year: '2026',
+		videos: {
+			video1src: '#',
+		},
+	},
+
+	{
+		year: '2023',
+		videos: {
+			video1src: '#',
+			video2src: '#',
+		},
+	},
+];
+
+const [year1, year2] = videos;
+
+console.log(typeof year2);
+
+const videoLink = (videoTag) => {
+	video.src = obj.videoSrc;
+};
+
+const adjustVideoView = (arr, video) => {
+	for (let toggle of arr) {
+		toggle.addEventListener(click, () => {
+			if (toggle == arr[0]) {
+				video.style.objectFit = 'cover';
+			}
+			if (toggle == arr[1]) {
+				video.style.objectFit = 'fill';
+			}
+			if (toggle == arr[2]) {
+				video.style.objectFit = 'contain';
+			}
+		});
+	}
+};
+
+const videoAdjustToggles = selectAll('.video-adjust-controls');
+
+adjustVideoView(videoAdjustToggles);
