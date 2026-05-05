@@ -294,8 +294,7 @@ video {
 	justify-content: space-around;
 	box-shadow: 2px 1px 5px 1px var(--black);
 }
-
-.video-adjust-container > h5 {
+.video-adjust-header {
 	color: var(--accent);
 	height: 20%;
 }
@@ -304,6 +303,7 @@ video {
 	height: fit-content;
 	width: 100%;
 	justify-content: space-around;
+	outline: var(--olY);
 }
 
 .video-adjust-controls {
