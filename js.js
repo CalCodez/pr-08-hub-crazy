@@ -42,6 +42,18 @@ function toggleMobileMenu() {
 				link.style.display = 'none';
 			}
 		}
+
+		for (let link of mobileNavLinks) {
+			link.addEventListener(click, () => {
+				if (mobileMenu.classList.contains(mobileMenuActive)) {
+					toggleClass(mobileMenu, mobileMenuActive);
+					toggle.style.color = 'var(--project-color-dark)';
+					mobileNavLinks.forEach((link) => {
+						link.style.display = 'none';
+					});
+				}
+			});
+		}
 	});
 }
 
