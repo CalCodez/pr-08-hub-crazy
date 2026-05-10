@@ -85,7 +85,6 @@ function toggleYearContainer() {
 			toggleClass(yearJumpContainer, activeMenu);
 			removeClass(toggleIcon, caretUp);
 			addClass(toggleIcon, caretDown);
-			toggleClass(yearToggleLabel, flexActive);
 
 			for (let toggles of yearToggles) {
 				toggles.style.display = 'none';
