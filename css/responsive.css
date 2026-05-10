@@ -9,4 +9,16 @@
 	.fa-bars {
 		display: flex;
 	}
+
+	.year-container-toggle {
+		display: block;
+	}
+
+	.main-year-toggle-container {
+		width: 300px;
+	}
+
+	.main-year-toggles {
+		display: none;
+	}
 }

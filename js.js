@@ -63,30 +63,28 @@ toggleMobileMenu();
 function toggleYearContainer() {
 	const toggle = getById('year-container-toggle');
 	const yearJumpContainer = getById('year-jump-container');
-	const yearToggleLabel = select('.year-toggle-label');
 	const yearToggles = selectAll('.year-toggles');
 	const toggleIcon = select('.toggle-icon');
 
 	const activeMenu = 'year-jump-container-active';
-	const caretLeft = 'fa-caret-left';
-	const caretRight = 'fa-caret-right';
+	const caretDown = 'fa-caret-down';
+	const caretUp = 'fa-caret-up';
 
 	toggle.addEventListener(click, () => {
 		if (!yearJumpContainer.classList.contains(activeMenu)) {
 			toggleClass(yearJumpContainer, activeMenu);
-			removeClass(toggleIcon, caretLeft);
-			addClass(toggleIcon, caretRight);
+			removeClass(toggleIcon, caretDown);
+			addClass(toggleIcon, caretUp);
 
 			setTimeout(() => {
-				toggleClass(yearToggleLabel, flexActive);
 				for (let toggles of yearToggles) {
 					toggles.style.display = 'block';
 				}
 			}, 200);
 		} else {
 			toggleClass(yearJumpContainer, activeMenu);
-			removeClass(toggleIcon, caretRight);
-			addClass(toggleIcon, caretLeft);
+			removeClass(toggleIcon, caretUp);
+			addClass(toggleIcon, caretDown);
 			toggleClass(yearToggleLabel, flexActive);
 
 			for (let toggles of yearToggles) {
@@ -98,9 +96,8 @@ function toggleYearContainer() {
 	for (let toggles of yearToggles) {
 		toggles.addEventListener(click, () => {
 			toggleClass(yearJumpContainer, activeMenu);
-			removeClass(toggleIcon, caretRight);
-			addClass(toggleIcon, caretLeft);
-			toggleClass(yearToggleLabel, flexActive);
+			removeClass(toggleIcon, caretUp);
+			addClass(toggleIcon, caretDown);
 
 			for (let toggles of yearToggles) {
 				toggles.style.display = 'none';
@@ -131,8 +128,6 @@ const videos = [
 
 const [year1, year2] = videos;
 
-console.log(typeof year2);
-
 const videoLink = (videoTag) => {
 	video.src = obj.videoSrc;
 };
@@ -154,5 +149,6 @@ const adjustVideoView = (arr, video) => {
 };
 
 const videoAdjustToggles = selectAll('.video-adjust-controls');
+const testVideo = getById('test-video');
 
-adjustVideoView(videoAdjustToggles);
+adjustVideoView(videoAdjustToggles, testVideo);

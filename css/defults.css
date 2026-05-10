@@ -51,7 +51,6 @@ body {
 	min-width: 320px;
 	height: fit-content;
 	position: relative;
-	outline: var(--olY);
 }
 
 a,
