@@ -16,6 +16,11 @@
 
 	.main-year-toggle-container {
 		width: 300px;
+		height: 90px;
+	}
+
+	.video-year-nav-container {
+		height: 20px;
 	}
 
 	.main-year-toggles {

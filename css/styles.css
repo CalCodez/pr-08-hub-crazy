@@ -187,13 +187,14 @@ header {
 .main-year-toggle-container > h5 {
 	color: var(--accent);
 	font-size: 1.5rem;
-	text-shadow: 1px 1px 2px var(--project-color-dark);
+	text-shadow: 2px 2px 2px var(--project-color-dark);
 }
 .video-year-nav-container {
 	width: 80%;
 	height: 80px;
 	justify-content: space-evenly;
 	position: relative;
+	/* outline: var(--olY); */
 }
 
 .year-jump-container {
@@ -227,7 +228,7 @@ header {
 .year-container-toggle {
 	position: absolute;
 	height: 25px;
-	width: 280px;
+	width: 100px;
 	background: linear-gradient(var(--accent), var(--accent-dark), var(--project-color-dark));
 	text-align: center;
 	align-content: center;
@@ -238,7 +239,7 @@ header {
 	z-index: 4;
 	cursor: pointer;
 	top: 0;
-	display: none;
+	/* display: none; */
 }
 
 .year-container-toggle:hover {
@@ -265,14 +266,30 @@ header {
 	background-color: var(--project-color-dark);
 	color: var(--accent);
 	font-weight: 600;
-	border: 2px ridge var(--accent-dark);
-	border-radius: 8px;
-	box-shadow: 2px 2px 5px 1px var(--black);
+	border: 2px outset var(--project-color-main);
+	border-radius: 6px;
+	box-shadow: 2px 2px 5px 1px var(--project-color-dark);
+	transition: all ease 0.3s;
+}
+
+.year-toggles:hover {
+	background: linear-gradient(
+		90deg,
+		var(--project-color-light),
+		var(--project-color-main),
+		var(--project-color-main),
+		var(--project-color-main),
+		var(--accent)
+	);
+	text-shadow: 2px 2px 2px var(--black);
+	transform: scale(1.08);
+	width: 190px;
+	transition: all ease 0.2s;
 }
 
 .year-toggles {
 	display: none;
-	width: 280px;
+	width: 220px;
 	height: 35px;
 }
 
