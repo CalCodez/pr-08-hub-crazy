@@ -108,30 +108,57 @@ function toggleYearContainer() {
 toggleYearContainer();
 
 //++Videos Obj
-const videos = [
+const videosObj = [
 	{
 		year: '2026',
-		videos: {
-			video1src: '#',
-		},
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
 	},
 
 	{
 		year: '2023',
-		videos: {
-			video1src: '#',
-			video2src: '#',
-		},
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
+	},
+	{
+		year: '2022',
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
+	},
+
+	{
+		year: '2021',
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
+	},
+	{
+		year: '2020',
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
+	},
+
+	{
+		year: '2018',
+		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+		],
 	},
 ];
 
-const [year1, year2] = videos;
-
-const videoLink = (videoTag) => {
-	video.src = obj.videoSrc;
-};
-
-const adjustVideoView = (arr, video) => {
+//For Videos Cards
+//**Adjust video fit function */
+function adjustVideoView(arr, video) {
 	for (let toggle of arr) {
 		toggle.addEventListener(click, () => {
 			if (toggle == arr[0]) {
@@ -145,6 +172,79 @@ const adjustVideoView = (arr, video) => {
 			}
 		});
 	}
+}
+
+function generateVideoYearContainers(obj) {
+	const addContainerClass = [];
+
+	const parent = getById('video-section');
+	const cardParent = createElement('div');
+
+	addClass(cardParent, 'video-year-container');
+	addContainerClass.push(cardParent);
+	appendChild(parent, cardParent);
+	cardParent.id = obj.year;
+
+	const groupYear = createElement('span');
+	addClass(groupYear, 'video-year-span');
+	textContent(groupYear, obj.year);
+	appendChild(cardParent, groupYear);
+
+	for (let i of addContainerClass) {
+		addClass(i, 'container');
+	}
+
+	// function generateVideoCard(obj, parent) {
+	// 	const addContainerClass = [];
+
+	// 	for(let video of obj)
+	// 	const card = createElement('div');
+	// 	addClass(card, 'video-card');
+	// 	addClass(card, 'container');
+
+	// 	const videoTag = createElement('video');
+	// 	videoTag.src = obj;
+	// 	appendChild(card, videoTag);
+
+	// 	const videoAdjustContainer = createElement('div');
+	// 	addClass(videoAdjustContainer, 'video-adjust-container');
+	// 	addContainerClass.push(videoAdjustContainer);
+	// 	appendChild(card, videoAdjustContainer);
+
+	// 	const videoAdjustHeader = createElement('h5');
+	// 	textContent(videoAdjustHeader, 'Adjust Video View');
+	// 	appendChild(videoAdjustContainer, videoAdjustHeader);
+
+	// 	const videoAdjustControlsWrapper = createElement('div');
+	// 	addClass(videoAdjustControlsWrapper, 'video-adjust-controls-wrapper');
+	// 	addContainerClass.push(videoAdjustControlsWrapper);
+	// 	appendChild(card, videoAdjustControlsWrapper);
+
+	// 	const videoControlSpans = [];
+	// 	for (let i = 0; i < 3; i++) {
+	// 		videoControlSpans.push(createElement('span'));
+	// 	}
+	// 	for (let toggle of videoControlSpans) {
+	// 		addClass(toggle, 'video-adjust-controls');
+	// 		appendChild(videoAdjustControlsWrapper, toggle);
+	// 	}
+	// 	adjustVideoView(videoControlSpans, obj);
+	// }
+
+	const getYearGroup = selectAll('.video-year-container');
+	console.log(getYearGroup);
+
+	if (obj.year === obj.id) {
+		appendChild(cardParent, card);
+	}
+}
+
+videosObj.forEach((year) => {
+	generateVideoYearContainers(year);
+});
+
+const videoLink = (videoTag) => {
+	video.src = obj.videoSrc;
 };
 
 const videoAdjustToggles = selectAll('.video-adjust-controls');
