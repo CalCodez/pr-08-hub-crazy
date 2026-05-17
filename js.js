@@ -111,7 +111,12 @@ toggleYearContainer();
 const videosObj = [
 	{
 		year: '2026',
+		videos: ['./assets/placeHolderVids_delete/placeHolder1.mp4'],
+	},
+	{
+		year: '2026',
 		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 		],
@@ -120,6 +125,9 @@ const videosObj = [
 	{
 		year: '2023',
 		videos: [
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
+			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 			'./assets/placeHolderVids_delete/placeHolder1.mp4',
 		],
@@ -159,6 +167,8 @@ const videosObj = [
 //For Videos Cards
 //**Adjust video fit function */
 function adjustVideoView(arr, video) {
+	const addContainerClass = [];
+
 	for (let toggle of arr) {
 		toggle.addEventListener(click, () => {
 			if (toggle == arr[0]) {
@@ -174,7 +184,7 @@ function adjustVideoView(arr, video) {
 	}
 }
 
-function generateVideoYearContainers(obj) {
+function generateVideoYearAndVideoCardContainers(obj) {
 	const addContainerClass = [];
 
 	const parent = getById('video-section');
@@ -194,53 +204,62 @@ function generateVideoYearContainers(obj) {
 		addClass(i, 'container');
 	}
 
-	// function generateVideoCard(obj, parent) {
-	// 	const addContainerClass = [];
-
-	// 	for(let video of obj)
-	// 	const card = createElement('div');
-	// 	addClass(card, 'video-card');
-	// 	addClass(card, 'container');
-
-	// 	const videoTag = createElement('video');
-	// 	videoTag.src = obj;
-	// 	appendChild(card, videoTag);
-
-	// 	const videoAdjustContainer = createElement('div');
-	// 	addClass(videoAdjustContainer, 'video-adjust-container');
-	// 	addContainerClass.push(videoAdjustContainer);
-	// 	appendChild(card, videoAdjustContainer);
-
-	// 	const videoAdjustHeader = createElement('h5');
-	// 	textContent(videoAdjustHeader, 'Adjust Video View');
-	// 	appendChild(videoAdjustContainer, videoAdjustHeader);
-
-	// 	const videoAdjustControlsWrapper = createElement('div');
-	// 	addClass(videoAdjustControlsWrapper, 'video-adjust-controls-wrapper');
-	// 	addContainerClass.push(videoAdjustControlsWrapper);
-	// 	appendChild(card, videoAdjustControlsWrapper);
-
-	// 	const videoControlSpans = [];
-	// 	for (let i = 0; i < 3; i++) {
-	// 		videoControlSpans.push(createElement('span'));
-	// 	}
-	// 	for (let toggle of videoControlSpans) {
-	// 		addClass(toggle, 'video-adjust-controls');
-	// 		appendChild(videoAdjustControlsWrapper, toggle);
-	// 	}
-	// 	adjustVideoView(videoControlSpans, obj);
-	// }
-
 	const getYearGroup = selectAll('.video-year-container');
-	console.log(getYearGroup);
 
 	if (obj.year === obj.id) {
 		appendChild(cardParent, card);
 	}
+
+	//++Generate Video Cards
+
+	for (let video of obj.videos) {
+		const card = createElement('div');
+		addClass(card, 'video-card');
+		addClass(card, 'container');
+
+		const videoTag = createElement('video');
+		videoTag.src = video;
+		videoTag.setAttribute('controls', null);
+		appendChild(card, videoTag);
+
+		const videoAdjustContainer = createElement('div');
+		addClass(videoAdjustContainer, 'video-adjust-container');
+		addClass(videoAdjustContainer, 'container');
+		appendChild(card, videoAdjustContainer);
+
+		const videoAdjustHeader = createElement('h5');
+		addClass(videoAdjustHeader, 'video-adjust-header');
+		textContent(videoAdjustHeader, 'Adjust Video View');
+		appendChild(videoAdjustContainer, videoAdjustHeader);
+
+		const videoAdjustControlsWrapper = createElement('div');
+		addClass(videoAdjustControlsWrapper, 'video-adjust-controls-wrapper');
+		addClass(videoAdjustControlsWrapper, 'container');
+		appendChild(videoAdjustContainer, videoAdjustControlsWrapper);
+
+		const videoControlSpans = [];
+		for (let i = 0; i < 3; i++) {
+			videoControlSpans.push(createElement('span'));
+		}
+		for (let toggle of videoControlSpans) {
+			addClass(toggle, 'video-adjust-controls');
+			appendChild(videoAdjustControlsWrapper, toggle);
+		}
+
+		textContent(videoControlSpans[0], 'Cover');
+		textContent(videoControlSpans[1], 'Fill');
+		textContent(videoControlSpans[2], 'Contain');
+
+		adjustVideoView(videoControlSpans, videoTag);
+
+		if (cardParent.id == obj.year) {
+			appendChild(cardParent, card);
+		}
+	}
 }
 
 videosObj.forEach((year) => {
-	generateVideoYearContainers(year);
+	generateVideoYearAndVideoCardContainers(year);
 });
 
 const videoLink = (videoTag) => {
