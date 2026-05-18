@@ -196,6 +196,15 @@ function generateVideoYearContainer(obj) {
 	textContent(groupYear, obj.year);
 	appendChild(cardParent, groupYear);
 
+	const backgroundYearContainer = createElement('div');
+	addClass(backgroundYearContainer, 'background-year-container');
+	addClass(backgroundYearContainer, 'container');
+	appendChild(cardParent, backgroundYearContainer);
+
+	const backgroundYearSpan = createElement('span');
+	textContent(backgroundYearSpan, obj.year);
+	appendChild(backgroundYearContainer, backgroundYearSpan);
+
 	const backToNav = createElement('a');
 	addClass(backToNav, 'back-to-nav');
 	backToNav.href = `#video-section`;
