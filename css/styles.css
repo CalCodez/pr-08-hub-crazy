@@ -313,26 +313,42 @@ header {
 .background-year-container {
 	position: absolute;
 	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
+	width: 80px;
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-	background: rgba(15, 23, 42, 0.5);
+	background: rgba(15, 23, 42, 0.3);
+	place-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 }
 
 .background-year-container > span {
-	font-size: 10rem;
+	font-size: 5rem;
 	color: rgba(15, 23, 42, 0.6);
-	/* font-family: var(--logo-font); */
-	outline: var(--olO);
-	width: 100%;
-	height: 100%;
+	font-family: var(--logo-font);
+	width: fit-content;
+	height: fit-content;
 	place-content: center;
-	text-align: center;
 	text-shadow: 1px;
 	color: var(--accent);
+	transform: rotate(90deg);
+	letter-spacing: 30px;
+	text-align: center;
+	margin-bottom: 48px;
+	position: sticky;
+	top: 40px;
+	bottom: 45px;
+}
+
+.video-year-container:hover > .background-year-container {
+	background: var(--project-color-dark);
+	transition: background ease 0.9s;
+}
+
+.video-year-container:hover > .background-year-container > span {
+	font-weight: 600;
+	font-size: 7rem;
 }
 
 .video-year-span,
