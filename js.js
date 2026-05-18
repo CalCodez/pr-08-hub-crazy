@@ -182,12 +182,10 @@ function adjustVideoView(arr, video) {
 	}
 }
 
-function generateVideoYearAndVideoCardContainers(obj) {
-	const addContainerClass = [];
-
+function generateVideoYearContainer(obj) {
 	const parent = getById('video-section');
-	const cardParent = createElement('div');
 
+	const cardParent = createElement('div');
 	addClass(cardParent, 'video-year-container');
 	addClass(cardParent, 'container');
 	appendChild(parent, cardParent);
@@ -204,14 +202,15 @@ function generateVideoYearAndVideoCardContainers(obj) {
 	appendChild(cardParent, backToNav);
 	textContent(backToNav, 'Back To Nav');
 
-	const navParent = backToNav.parentElement;
-
 	if (obj.year === obj.id) {
 		appendChild(cardParent, card);
 	}
 
-	//++Generate Video Cards
+	//**Generate Card Function */
+	generateVideoCard(obj, cardParent);
+}
 
+const generateVideoCard = (obj, cardParent) => {
 	for (let video of obj.videos) {
 		const card = createElement('div');
 		addClass(card, 'video-card');
@@ -256,10 +255,10 @@ function generateVideoYearAndVideoCardContainers(obj) {
 			appendChild(cardParent, card);
 		}
 	}
-}
+};
 
 videosObj.forEach((year) => {
-	generateVideoYearAndVideoCardContainers(year);
+	generateVideoYearContainer(year);
 });
 
 function videoYearToggle(arrOfToggle, videoYear) {

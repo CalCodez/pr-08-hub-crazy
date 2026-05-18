@@ -306,9 +306,8 @@ header {
 	box-shadow: 2px 2px 2px 2px var(--project-color-dark);
 	position: relative;
 	margin-bottom: 30px;
-	justify-content: space-evenly;
-	row-gap: 20px;
 	padding: 50px 0;
+	gap: 30px;
 }
 
 .video-year-span,
@@ -356,7 +355,7 @@ header {
 
 .video-card {
 	height: 390px;
-	width: 300px;
+	width: 260px;
 	border: 2px outset var(--accent-dark);
 	flex-direction: column;
 	justify-content: space-evenly;
